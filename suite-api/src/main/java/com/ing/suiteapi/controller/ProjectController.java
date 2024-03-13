@@ -1,7 +1,6 @@
 package com.ing.suiteapi.controller;
 
-import com.ing.suiteapi.service.usecase.project.retrive.ProjectRetrieveRequestDto;
-import com.ing.suiteapi.service.usecase.project.retrive.ProjectRetrieveResponseDto;
+import com.ing.suiteapi.service.dto.Projects;
 import com.ing.suiteapi.util.GherkinUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +8,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects")
@@ -25,8 +27,15 @@ public class ProjectController
     }
 
     @PostMapping("/list")
-    public ResponseEntity<ProjectRetrieveResponseDto> list(@RequestBody ProjectRetrieveRequestDto projectRetrieveRequestDto) {
+    public ResponseEntity<List<Projects>> list() {
+        return null;
+/*
+        List<Projects> projects = new ArrayList<>();
+        projects.add(new Projects.Builder().name("saving").id(1L).failedCount(5L).passedCount(26L).build());
+        projects.add(new Projects.Builder().name("account").id(2L).failedCount(0L).passedCount(56L).build());
+        projects.add(new Projects.Builder().name("loan").id(3L).failedCount(0L).passedCount(2326L).build());
+        return  ResponseEntity.status(HttpStatus.OK).body(projects);
 
-        return  null;
+ */
     }
 }
