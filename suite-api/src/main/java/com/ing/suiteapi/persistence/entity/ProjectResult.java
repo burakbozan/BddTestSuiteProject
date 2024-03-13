@@ -27,58 +27,57 @@ public class ProjectResult {
     @Column(name = "scenario")
     private String scenario;
 
-    private ProjectResult(Builder builder) {
-        id = builder.id;
-        projectId = builder.projectId;
-        txnDate = builder.txnDate;
-        passedResults = builder.passedResults;
-        failedResults = builder.failedResults;
-        scenario = builder.scenario;
+    public Long id() {
+        return id;
     }
 
-    public static final class Builder {
-        private Long id;
-        private Long projectId;
-        private LocalDateTime txnDate;
-        private Long passedResults;
-        private Long failedResults;
-        private String scenario;
+    public ProjectResult setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
-        public Builder() {
-        }
+    public Long projectId() {
+        return projectId;
+    }
 
-        public Builder id(Long val) {
-            id = val;
-            return this;
-        }
+    public ProjectResult setProjectId(Long projectId) {
+        this.projectId = projectId;
+        return this;
+    }
 
-        public Builder projectId(Long val) {
-            projectId = val;
-            return this;
-        }
+    public LocalDateTime txnDate() {
+        return txnDate;
+    }
 
-        public Builder txnDate(LocalDateTime val) {
-            txnDate = val;
-            return this;
-        }
+    public ProjectResult setTxnDate(LocalDateTime txnDate) {
+        this.txnDate = txnDate;
+        return this;
+    }
 
-        public Builder passedResults(Long val) {
-            passedResults = val;
-            return this;
-        }
+    public Long passedResults() {
+        return passedResults;
+    }
 
-        public Builder failedResults(Long val) {
-            failedResults = val;
-            return this;
-        }
+    public ProjectResult setPassedResults(Long passedResults) {
+        this.passedResults = passedResults;
+        return this;
+    }
 
-        public Builder scenario(String val) {
-            scenario = val;
-            return this;
-        }
+    public Long failedResults() {
+        return failedResults;
+    }
 
-        public ProjectResult build() {
-            return new ProjectResult(this);
-        }
+    public ProjectResult setFailedResults(Long failedResults) {
+        this.failedResults = failedResults;
+        return this;
+    }
+
+    public String scenario() {
+        return scenario;
+    }
+
+    public ProjectResult setScenario(String scenario) {
+        this.scenario = scenario;
+        return this;
     }
 }

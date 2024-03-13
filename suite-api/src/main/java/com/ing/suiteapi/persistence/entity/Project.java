@@ -21,44 +21,39 @@ public class Project {
     @Column(name = "created")
     private LocalDateTime created;
 
-    private Project(Builder builder) {
-        id = builder.id;
-        name = builder.name;
-        createdBy = builder.createdBy;
-        created = builder.created;
+    public Long id() {
+        return id;
     }
 
-    public static final class Builder {
-        private Long id;
-        private String name;
-        private String createdBy;
-        private LocalDateTime created;
+    public Project setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
-        public Builder() {
-        }
+    public String name() {
+        return name;
+    }
 
-        public Builder id(Long val) {
-            id = val;
-            return this;
-        }
+    public Project setName(String name) {
+        this.name = name;
+        return this;
+    }
 
-        public Builder name(String val) {
-            name = val;
-            return this;
-        }
+    public String createdBy() {
+        return createdBy;
+    }
 
-        public Builder createdBy(String val) {
-            createdBy = val;
-            return this;
-        }
+    public Project setCreatedBy(String createdBy) {
+        this.createdBy = createdBy;
+        return this;
+    }
 
-        public Builder created(LocalDateTime val) {
-            created = val;
-            return this;
-        }
+    public LocalDateTime created() {
+        return created;
+    }
 
-        public Project build() {
-            return new Project(this);
-        }
+    public Project setCreated(LocalDateTime created) {
+        this.created = created;
+        return this;
     }
 }
