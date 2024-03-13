@@ -15,4 +15,16 @@ public class ScenarioParametersDto {
         this.name = name;
         this.params = params;
     }
+
+    public Long getOrder() {
+        return order;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Map<String, String> getParams() {
+        return params;
+    }
 }

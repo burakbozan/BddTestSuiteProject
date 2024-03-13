@@ -13,4 +13,16 @@ public class ScenarioStepsDto {
         this.actionKey = actionKey;
         this.actionWorld = actionWorld;
     }
+
+    public Long getOrder() {
+        return order;
+    }
+
+    public ActionKey getActionKey() {
+        return actionKey;
+    }
+
+    public String getActionWorld() {
+        return actionWorld;
+    }
 }

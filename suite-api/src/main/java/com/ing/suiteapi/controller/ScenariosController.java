@@ -1,16 +1,18 @@
 package com.ing.suiteapi.controller;
 
-import com.ing.suiteapi.service.dto.ScenarioDto;
-import com.ing.suiteapi.service.dto.ScenarioStepsDto;
+import com.ing.suiteapi.service.dto.*;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveRequest;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveResponse;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioRetrieveRequest;
+import com.ing.suiteapi.service.usecase.scenario.model.ScenarioResultRetrieveRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:8000")
 @RestController
@@ -70,15 +72,45 @@ public class ScenariosController {
         );
 
 
-        return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList.stream().filter(f-> f.getId().equals(scenarioRetrieveRequest.getProjectId())).toList());
+        return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList.stream().filter(f -> f.getId().equals(scenarioRetrieveRequest.getProjectId())).toList());
     }
 
-    @PostMapping("parameters/list")
-    public ResponseEntity<List<ScenarioDetailRetrieveResponse>> scenarioDetail(@RequestBody ScenarioDetailRetrieveRequest scenarioDetailRetrieveRequest) {
+    @PostMapping("detail/list")
+    public ResponseEntity<ScenarioDetailRetrieveResponse> scenarioDetail(@RequestBody ScenarioDetailRetrieveRequest scenarioDetailRetrieveRequest) {
 
-       return null;
+        List<ScenarioParametersDto> scenarioParametersDtoList = new ArrayList<>();
+        Map<String, String> params = new HashMap<>();
+        params.put("ending_balance", "$0");
+        params.put("amount", "$100");
+        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params));
+        params.clear();
+        params.put("ending_balance", "$50");
+        params.put("amount", "$50");
+        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params));
+        params.clear();
+        params.put("ending_balance", "$80");
+        params.put("amount", "$20");
+        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params));
+
+        List<ScenarioStepsDto> scenarioStepsDtoList = new ArrayList<>();
+        scenarioStepsDtoList.add(new ScenarioStepsDto(1L, ActionKey.GIVEN, "the account balance is \"$100\""));
+        scenarioStepsDtoList.add(new ScenarioStepsDto(2L, ActionKey.AND, "the machine contains enough money"));
+        scenarioStepsDtoList.add(new ScenarioStepsDto(3L, ActionKey.AND, "the card is valid"));
+        scenarioStepsDtoList.add(new ScenarioStepsDto(4L, ActionKey.WHEN, "the Account Holder requests \"<amount>\""));
+        scenarioStepsDtoList.add(new ScenarioStepsDto(5L, ActionKey.THEN, "the ATM should dispense \"<amount>\""));
+        scenarioStepsDtoList.add(new ScenarioStepsDto(6L, ActionKey.AND, "the account balance should be \"<ending_balance>\""));
+        scenarioStepsDtoList.add(new ScenarioStepsDto(7L, ActionKey.AND, "the card should be returned"));
+
+        ScenarioDetailRetrieveResponse response = new ScenarioDetailRetrieveResponse(scenarioParametersDtoList, scenarioStepsDtoList);
+        return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @PostMapping("result/list")
+    public ResponseEntity<List<ScenarioResultDto>> scenarioStep(@RequestBody ScenarioResultRetrieveRequest scenarioResultRetrieveRequest) {
+
+        List<ScenarioResultDto> scenarioResultDtoList = new ArrayList<>();
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
 
 
 }
