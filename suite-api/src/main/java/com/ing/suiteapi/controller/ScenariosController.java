@@ -1,15 +1,10 @@
 package com.ing.suiteapi.controller;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.ing.suiteapi.service.dto.Projects;
 import com.ing.suiteapi.service.dto.ScenarioDto;
+import com.ing.suiteapi.service.usecase.scenario.model.ScenarioRetrieveRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,7 +14,7 @@ import java.util.List;
 public class ScenariosController {
 
     @PostMapping("/list")
-    public ResponseEntity<List<ScenarioDto>> list(@RequestBody @JsonSerialize Long projectId) {
+    public ResponseEntity<List<ScenarioDto>> list(@RequestBody ScenarioRetrieveRequest scenarioRetrieveRequest) {
 
         List<ScenarioDto> scenarioDtoList = new ArrayList<>();
         scenarioDtoList.add(
