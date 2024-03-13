@@ -65,7 +65,8 @@ public class ScenariosController {
                         .build()
         );
 
-        return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList);
+
+        return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList.stream().filter(f-> f.getId().equals(scenarioRetrieveRequest.getProjectId())).toList());
     }
 
 }
