@@ -1,7 +1,7 @@
 package com.ing.suiteapi.controller;
 
-import com.ing.suiteapi.service.usecase.retrive.ProjectRetrieveRequestDto;
-import com.ing.suiteapi.service.usecase.retrive.ProjectRetrieveResponseDto;
+import com.ing.suiteapi.service.usecase.project.retrive.ProjectRetrieveRequestDto;
+import com.ing.suiteapi.service.usecase.project.retrive.ProjectRetrieveResponseDto;
 import com.ing.suiteapi.util.GherkinUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
