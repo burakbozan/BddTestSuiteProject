@@ -2,6 +2,7 @@ package com.ing.suiteapi.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.ing.suiteapi.util.Base64Utils;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.core.io.ResourceLoader;
@@ -84,7 +85,7 @@ public class GithubActionClient {
 		String root = System.getProperty("user.dir");
 		String filePath = "/src/main/resources/cucumber.json";
 		String resourceFolderPath = root + filePath;
-		byte[] zipBytes = response.getBody().getBytes();
+		byte[] zipBytes = Base64Utils.decodeBase64ToBytes(response.getBody());
 
 		ByteArrayInputStream bais = new ByteArrayInputStream(zipBytes);
 
