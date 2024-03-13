@@ -1,6 +1,9 @@
 package com.ing.suiteapi.controller;
 
 import com.ing.suiteapi.service.dto.ScenarioDto;
+import com.ing.suiteapi.service.dto.ScenarioStepsDto;
+import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveRequest;
+import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveResponse;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioRetrieveRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -68,5 +71,13 @@ public class ScenariosController {
 
         return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList.stream().filter(f-> f.getId().equals(scenarioRetrieveRequest.getProjectId())).toList());
     }
+
+    @PostMapping("parameters/list")
+    public ResponseEntity<List<ScenarioDetailRetrieveResponse>> scenarioDetail(@RequestBody ScenarioDetailRetrieveRequest scenarioDetailRetrieveRequest) {
+
+       return null;
+    }
+
+
 
 }
