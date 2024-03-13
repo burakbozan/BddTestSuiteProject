@@ -19,8 +19,8 @@ public class Scenario {
     @Column(name = "txnDate")
     private LocalDateTime txnDate;
 
-    @Column(name = "order")
-    private Long order;
+    @Column(name = "orderNo")
+    private Long orderNo;
 
     @Column(name = "actionKey")
     private String actionKey;
@@ -52,12 +52,12 @@ public class Scenario {
         return this;
     }
 
-    public Long order() {
-        return order;
+    public Long orderNo() {
+        return orderNo;
     }
 
-    public Scenario setOrder(Long order) {
-        this.order = order;
+    public Scenario setOrderNo(Long orderNo) {
+        this.orderNo = orderNo;
         return this;
     }
 
