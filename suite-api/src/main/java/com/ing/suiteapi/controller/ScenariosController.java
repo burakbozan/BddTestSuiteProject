@@ -1,10 +1,8 @@
 package com.ing.suiteapi.controller;
 
 import com.ing.suiteapi.service.dto.*;
-import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveRequest;
-import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveResponse;
-import com.ing.suiteapi.service.usecase.scenario.model.ScenarioRetrieveRequest;
-import com.ing.suiteapi.service.usecase.scenario.model.ScenarioResultRetrieveRequest;
+import com.ing.suiteapi.service.usecase.scenario.model.*;
+import com.ing.suiteapi.util.HtmlReader;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +16,12 @@ import java.util.Map;
 @RestController
 @RequestMapping("/api/scenarios")
 public class ScenariosController {
+
+    private final HtmlReader htmlReader;
+
+    public ScenariosController(HtmlReader htmlReader) {
+        this.htmlReader = htmlReader;
+    }
 
     @PostMapping("/list")
     public ResponseEntity<List<ScenarioDto>> list(@RequestBody ScenarioRetrieveRequest scenarioRetrieveRequest) {
@@ -105,12 +109,16 @@ public class ScenariosController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
-    @PostMapping("result/list")
-    public ResponseEntity<List<ScenarioResultDto>> scenarioStep(@RequestBody ScenarioResultRetrieveRequest scenarioResultRetrieveRequest) {
+    @PostMapping("result/retrieve")
+    public ResponseEntity<String> scenarioRetrieveStep(@RequestBody ScenarioResultRetrieveRequest scenarioResultRetrieveRequest) {
 
-        List<ScenarioResultDto> scenarioResultDtoList = new ArrayList<>();
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(htmlReader.readHtmlFile());
     }
 
+    @PostMapping("result/execute")
+    public ResponseEntity<String> scenarioExecuteStep(@RequestBody ScenarioExecuteRetrieveRequest scenarioExecuteRetrieveRequest) {
+
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
 
 }
