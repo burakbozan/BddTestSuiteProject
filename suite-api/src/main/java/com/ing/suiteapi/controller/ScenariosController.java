@@ -25,7 +25,7 @@ public class ScenariosController {
         List<ScenarioDto> scenarioDtoList = new ArrayList<>();
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(2L).
+                        id(1L).
                         name("Account Open").
                         isSuccess(true)
                         .build()
@@ -49,7 +49,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(3L).
+                        id(1L).
                         name("Loan Rating").
                         isSuccess(true)
                         .build()
@@ -57,7 +57,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(3L).
+                        id(2L).
                         name("Loan Accounting").
                         isSuccess(true)
                         .build()
