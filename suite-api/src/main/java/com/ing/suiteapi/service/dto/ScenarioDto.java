@@ -1,5 +1,8 @@
 package com.ing.suiteapi.service.dto;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@JsonSerialize
 public class ScenarioDto {
     private final Long id;
     private final String name;

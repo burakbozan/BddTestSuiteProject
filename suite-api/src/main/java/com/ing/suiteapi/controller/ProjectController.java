@@ -28,14 +28,12 @@ public class ProjectController
 
     @PostMapping("/list")
     public ResponseEntity<List<Projects>> list() {
-        return null;
-/*
+
         List<Projects> projects = new ArrayList<>();
         projects.add(new Projects.Builder().name("saving").id(1L).failedCount(5L).passedCount(26L).build());
         projects.add(new Projects.Builder().name("account").id(2L).failedCount(0L).passedCount(56L).build());
         projects.add(new Projects.Builder().name("loan").id(3L).failedCount(0L).passedCount(2326L).build());
         return  ResponseEntity.status(HttpStatus.OK).body(projects);
 
- */
     }
 }
