@@ -1,6 +1,7 @@
 package com.ing.suiteapi.controller;
 
 import com.ing.suiteapi.service.dto.*;
+import com.ing.suiteapi.service.usecase.project.ScenarioRetrieveService;
 import com.ing.suiteapi.service.usecase.scenario.model.*;
 import com.ing.suiteapi.util.HtmlReader;
 import org.springframework.http.HttpStatus;
@@ -19,13 +20,16 @@ public class ScenariosController {
 
     private final HtmlReader htmlReader;
 
-    public ScenariosController(HtmlReader htmlReader) {
+    private final ScenarioRetrieveService scenarioRetrieveService;
+
+    public ScenariosController(HtmlReader htmlReader, ScenarioRetrieveService scenarioRetrieveService) {
         this.htmlReader = htmlReader;
+        this.scenarioRetrieveService = scenarioRetrieveService;
     }
 
     @PostMapping("/list")
     public ResponseEntity<List<ScenarioDto>> list(@RequestBody ScenarioRetrieveRequest scenarioRetrieveRequest) {
-
+/*
         List<ScenarioDto> scenarioDtoList = new ArrayList<>();
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
@@ -74,9 +78,9 @@ public class ScenariosController {
                         isSuccess(true)
                         .build()
         );
+*/
 
-
-        return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList.stream().filter(f -> f.getId().equals(scenarioRetrieveRequest.getProjectId())).toList());
+        return ResponseEntity.status(HttpStatus.OK).body(scenarioRetrieveService.getScenario());
     }
 
     @PostMapping("detail/list")

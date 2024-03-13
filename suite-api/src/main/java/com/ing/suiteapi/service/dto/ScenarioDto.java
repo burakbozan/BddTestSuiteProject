@@ -8,7 +8,7 @@ public class ScenarioDto {
     private final String name;
     private final Boolean isSuccess;
 
-    private ScenarioDto(Builder builder) {
+    public ScenarioDto(Builder builder) {
         id = builder.id;
         name = builder.name;
         isSuccess = builder.isSuccess;

@@ -1,6 +1,5 @@
 package com.ing.suiteapi.service.usecase.project;
 
-import com.ing.suiteapi.persistence.entity.Project;
 import com.ing.suiteapi.persistence.repository.ProjectRepository;
 import com.ing.suiteapi.service.dto.Projects;
 import org.springframework.stereotype.Service;
