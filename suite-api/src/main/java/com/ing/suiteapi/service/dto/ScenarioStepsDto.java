@@ -6,12 +6,12 @@ import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 public class ScenarioStepsDto {
     private final Long order;
     private final ActionKey actionKey;
-    private final String actionWorld;
+    private final String actionWord;
 
-    public ScenarioStepsDto(Long order, ActionKey actionKey, String actionWorld) {
+    public ScenarioStepsDto(Long order, ActionKey actionKey, String actionWord) {
         this.order = order;
         this.actionKey = actionKey;
-        this.actionWorld = actionWorld;
+        this.actionWord = actionWord;
     }
 
     public Long getOrder() {
@@ -22,7 +22,7 @@ public class ScenarioStepsDto {
         return actionKey;
     }
 
-    public String getActionWorld() {
-        return actionWorld;
+    public String getActionWord() {
+        return actionWord;
     }
 }
