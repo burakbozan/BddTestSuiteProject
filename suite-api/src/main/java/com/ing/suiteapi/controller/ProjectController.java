@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/projects")
 public class ProjectController{
 
-    private ProjectRetrieveApplicationService projectRetrieveApplicationService;
+    private final ProjectRetrieveApplicationService projectRetrieveApplicationService;
 
     public ProjectController(ProjectRetrieveApplicationService projectRetrieveApplicationService) {
         this.projectRetrieveApplicationService = projectRetrieveApplicationService;
