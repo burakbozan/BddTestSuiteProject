@@ -12,8 +12,7 @@ import java.util.List;
 @CrossOrigin(origins = "http://localhost:8000")
 @RestController
 @RequestMapping("/api/projects")
-public class ProjectController
-{
+public class ProjectController{
 
     @PostMapping("/create")
     public ResponseEntity<String> createProject(@RequestBody String gherkinText) {
