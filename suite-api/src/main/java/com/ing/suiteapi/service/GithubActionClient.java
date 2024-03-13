@@ -41,7 +41,6 @@ public class GithubActionClient {
 
 		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
 
-
 		ResponseEntity<String> response = restTemplate.exchange(
 				"https://api.github.com/repos/omernaci/bdd-testsuite-demo/actions/artifacts",
 				HttpMethod.GET,
