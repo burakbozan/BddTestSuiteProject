@@ -29,8 +29,8 @@ public class ResultExecuteApplicationService {
        List<Long> scenarioList = scenarioStepRepository.findAll().stream().
                 filter(f-> f.scenarioId().equals(projectId)).map(ScenarioStep::getScenarioId).toList();
 
-        String joined = "\n";
-        for (var scenarioId : scenarioList)
+        String joined = "Scenario: ";
+        for (var scenarioId : scenarioList.stream().distinct().toList())
         {
             joined =  joined + scenarioRepository.findAll().stream().
                     filter(f -> f.getId().equals(scenarioId)).findFirst().get().getScenarioName() + "\n";

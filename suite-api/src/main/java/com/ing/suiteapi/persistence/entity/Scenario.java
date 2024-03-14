@@ -18,6 +18,13 @@ public class Scenario {
     @Column(name = "projectId")
     private Long projectId;
 
+    public Scenario() {
+    }
+
+    public Scenario(Long id) {
+        this.id = id;
+    }
+
     public Scenario(String scenarioName, Long projectId) {
         this.scenarioName = scenarioName;
         this.projectId = projectId;
