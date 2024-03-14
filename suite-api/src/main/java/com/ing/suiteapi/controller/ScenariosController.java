@@ -102,11 +102,11 @@ public class ScenariosController {
         params.clear();
         params.put("ending_balance", "$50");
         params.put("amount", "$50");
-        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params));
+        scenarioParametersDtoList.add(new ScenarioParametersDto(2L, "Account Open", params));
         params.clear();
         params.put("ending_balance", "$80");
         params.put("amount", "$20");
-        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params));
+        scenarioParametersDtoList.add(new ScenarioParametersDto(3L, "Account Open", params));
 
         List<ScenarioStepsDto> scenarioStepsDtoList = new ArrayList<>();
         scenarioStepsDtoList.add(new ScenarioStepsDto(1L, ActionKey.GIVEN, "the account balance is \"$100\""));
