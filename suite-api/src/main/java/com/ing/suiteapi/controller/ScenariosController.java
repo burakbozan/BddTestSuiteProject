@@ -49,7 +49,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(2L).
+                        id(1L).
                         name("Account Close").
                         isSuccess(true)
                         .build()
@@ -57,7 +57,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(3L).
+                        id(2L).
                         name("Saving Rate").
                         isSuccess(false)
                         .build()
@@ -65,7 +65,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(4L).
+                        id(3L).
                         name("Loan Rating").
                         isSuccess(true)
                         .build()
@@ -73,7 +73,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(5L).
+                        id(3L).
                         name("Loan Accounting").
                         isSuccess(false)
                         .build()
@@ -81,7 +81,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(6L).
+                        id(3L).
                         name("Loan Rate").
                         isSuccess(true)
                         .build()
