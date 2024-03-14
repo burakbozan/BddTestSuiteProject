@@ -8,10 +8,12 @@ import java.util.List;
 
 @JsonSerialize
 public class ScenarioCreateRequest {
-    private List<ScenarioParametersDto> scenarioParametersDtoList;
-    private List<ScenarioStepsDto> scenarioStepsDtoList;
+    private final Long projectId;
+    private final List<ScenarioParametersDto> scenarioParametersDtoList;
+    private final List<ScenarioStepsDto> scenarioStepsDtoList;
 
-    public ScenarioCreateRequest(List<ScenarioParametersDto> scenarioParametersDtoList, List<ScenarioStepsDto> scenarioStepsDtoList) {
+    public ScenarioCreateRequest(Long projectId, List<ScenarioParametersDto> scenarioParametersDtoList, List<ScenarioStepsDto> scenarioStepsDtoList) {
+        this.projectId = projectId;
         this.scenarioParametersDtoList = scenarioParametersDtoList;
         this.scenarioStepsDtoList = scenarioStepsDtoList;
     }
@@ -22,5 +24,9 @@ public class ScenarioCreateRequest {
 
     public List<ScenarioStepsDto> getScenarioStepsDtoList() {
         return scenarioStepsDtoList;
+    }
+
+    public Long getScenarioId() {
+        return projectId;
     }
 }
