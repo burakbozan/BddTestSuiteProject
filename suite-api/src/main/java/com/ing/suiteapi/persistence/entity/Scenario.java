@@ -25,6 +25,9 @@ public class Scenario {
     @Column(name = "actionKey")
     private String actionKey;
 
+    @Column(name = "actionWord")
+    private String actionWord;
+
     public Long id() {
         return id;
     }
@@ -69,4 +72,16 @@ public class Scenario {
         this.actionKey = actionKey;
         return this;
     }
+
+    public String actionWord() {
+        return actionWord;
+    }
+
+    public Scenario setActionWord(String actionWord) {
+        this.actionWord = actionWord;
+        return this;
+    }
+
+
+
 }
