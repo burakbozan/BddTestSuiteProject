@@ -131,10 +131,9 @@ public class ScenariosController {
     }
 
     @PostMapping("create")
-    public ResponseEntity<String> scenarioCreate(@RequestBody ScenarioCreateRequest scenarioCreateRequest) {
+    public ResponseEntity<Long> scenarioCreate(@RequestBody ScenarioCreateRequest scenarioCreateRequest) {
 
-        scenarioCreateApplicationService.createScenario(scenarioCreateRequest);
-        return ResponseEntity.status(HttpStatus.OK).body(null);
+        return ResponseEntity.status(HttpStatus.OK).body(scenarioCreateApplicationService.createScenario(scenarioCreateRequest));
     }
 
 
