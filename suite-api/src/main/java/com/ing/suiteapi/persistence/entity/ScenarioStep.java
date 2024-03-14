@@ -12,8 +12,8 @@ public class ScenarioStep {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "projectId")
-    private Long projectId;
+    @Column(name = "scenarioId")
+    private Long scenarioId;
 
     @Column(name = "txnDate")
     private LocalDateTime txnDate;
@@ -37,11 +37,11 @@ public class ScenarioStep {
     }
 
     public Long projectId() {
-        return projectId;
+        return scenarioId;
     }
 
-    public ScenarioStep setProjectId(Long projectId) {
-        this.projectId = projectId;
+    public ScenarioStep setScenarioId(Long scenarioId) {
+        this.scenarioId = scenarioId;
         return this;
     }
 

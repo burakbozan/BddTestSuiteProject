@@ -42,7 +42,7 @@ public class ScenarioCreateApplicationService {
 
         List<ScenarioStep> scenarioStepList = scenarioCreateRequest.getScenarioStepsDtoList().stream().map(
                 m->  new ScenarioStep()
-                        .setProjectId(scenarioCreateRequest.getScenarioId())
+                        .setScenarioId(scenarioCreateRequest.getScenarioId())
                         .setTxnDate(LocalDateTime.now())
                         .setActionWord(m.getActionWord())
                         .setOrderNo(m.getOrder())
