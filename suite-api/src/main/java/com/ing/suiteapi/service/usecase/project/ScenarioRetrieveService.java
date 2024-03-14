@@ -1,5 +1,6 @@
 package com.ing.suiteapi.service.usecase.project;
 
+import com.ing.suiteapi.persistence.entity.ScenarioData;
 import com.ing.suiteapi.persistence.repository.ScenarioDataRepository;
 import com.ing.suiteapi.persistence.repository.ScenarioStepRepository;
 import com.ing.suiteapi.service.dto.ScenarioDto;
@@ -7,6 +8,7 @@ import com.ing.suiteapi.service.dto.ScenarioParametersDto;
 import com.ing.suiteapi.service.dto.ScenarioStepsDto;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,11 +28,11 @@ public class ScenarioRetrieveService {
     }
 
     public List<ScenarioParametersDto> getScenarioParameterList(){
-        /*
-        List<ScenarioData> scenarioDataList = scenarioDataRepository.findAllById(Collections.singleton(1L)).stream().map(a -> new ScenarioData().setScenarioName("")).toList();
-        params.put(scenarioData.parameterKey(), scenarioData.parameterValue());
-        return scenarioRepository.findAll().stream().map(m -> new ScenarioParametersDto(scenarioData.orderNo(), scenarioData.scenarioName(), params)).toList();
-        */
+
+        //List<ScenarioData> scenarioDataList = scenarioDataRepository.findAllById(Collections.singleton(1L)).stream().map(a -> new ScenarioData().setOrderNo().setScenarioName().set).toList();
+        //params.put(scenarioData.parameterKey(), scenarioData.parameterValue());
+        //return scenarioRepository.findAll().stream().map(m -> new ScenarioParametersDto(scenarioData.orderNo(), scenarioData.scenarioName(), params)).toList();
+
         return null;
     }
 

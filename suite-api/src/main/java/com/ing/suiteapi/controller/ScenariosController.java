@@ -11,7 +11,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:8000")
 @RestController
@@ -89,7 +91,6 @@ public class ScenariosController {
     @PostMapping("detail/list")
     public ResponseEntity<ScenarioDetailRetrieveResponse> scenarioDetail(@RequestBody ScenarioDetailRetrieveRequest scenarioDetailRetrieveRequest) {
 
-        /*
         List<ScenarioParametersDto> scenarioParametersDtoList = new ArrayList<>();
         Map<String, String> params = new HashMap<>();
         params.put("ending_balance", "$0");
@@ -112,9 +113,9 @@ public class ScenariosController {
         scenarioStepsDtoList.add(new ScenarioStepsDto(5L, ActionKey.THEN, "the ATM should dispense \"<amount>\""));
         scenarioStepsDtoList.add(new ScenarioStepsDto(6L, ActionKey.AND, "the account balance should be \"<ending_balance>\""));
         scenarioStepsDtoList.add(new ScenarioStepsDto(7L, ActionKey.AND, "the card should be returned"));
-*/
-        ScenarioDetailRetrieveResponse response = new ScenarioDetailRetrieveResponse(scenarioRetrieveService.getScenarioParameterList(), scenarioRetrieveService.getScenarioStepList());
 
+        //ScenarioDetailRetrieveResponse response = new ScenarioDetailRetrieveResponse(scenarioRetrieveService.getScenarioParameterList(), scenarioRetrieveService.getScenarioStepList());
+        ScenarioDetailRetrieveResponse response = new ScenarioDetailRetrieveResponse(scenarioParametersDtoList, scenarioStepsDtoList);
         return ResponseEntity.status(HttpStatus.OK).body(response);
 
     }
