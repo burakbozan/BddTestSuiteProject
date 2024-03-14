@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8000")
@@ -28,7 +29,7 @@ public class ScenariosController {
 
     @PostMapping("/list")
     public ResponseEntity<List<ScenarioDto>> list(@RequestBody ScenarioRetrieveRequest scenarioRetrieveRequest) {
-/*
+
         List<ScenarioDto> scenarioDtoList = new ArrayList<>();
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
@@ -48,7 +49,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(1L).
+                        id(3L).
                         name("Saving Rate").
                         isSuccess(false)
                         .build()
@@ -56,7 +57,7 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(1L).
+                        id(4L).
                         name("Loan Rating").
                         isSuccess(true)
                         .build()
@@ -64,22 +65,22 @@ public class ScenariosController {
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(2L).
+                        id(5L).
                         name("Loan Accounting").
-                        isSuccess(true)
+                        isSuccess(false)
                         .build()
         );
 
         scenarioDtoList.add(
                 new ScenarioDto.Builder().
-                        id(3L).
+                        id(6L).
                         name("Loan Rate").
                         isSuccess(true)
                         .build()
         );
-*/
 
-        return ResponseEntity.status(HttpStatus.OK).body(scenarioRetrieveService.getScenario());
+        return ResponseEntity.status(HttpStatus.OK).body(scenarioDtoList.stream().filter(f-> f.getId().equals(scenarioRetrieveRequest.getProjectId())).toList());
+        //return ResponseEntity.status(HttpStatus.OK).body(scenarioRetrieveService.getScenario());
     }
 
     @PostMapping("detail/list")
