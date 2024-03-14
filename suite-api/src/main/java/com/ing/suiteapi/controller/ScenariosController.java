@@ -1,6 +1,7 @@
 package com.ing.suiteapi.controller;
 
 import com.ing.suiteapi.service.dto.*;
+import com.ing.suiteapi.service.usecase.scenario.ScenarioCreateApplicationService;
 import com.ing.suiteapi.service.usecase.scenario.model.*;
 import com.ing.suiteapi.util.HtmlReader;
 import org.springframework.http.HttpStatus;
@@ -18,9 +19,11 @@ import java.util.Map;
 public class ScenariosController {
 
     private final HtmlReader htmlReader;
+    private final ScenarioCreateApplicationService scenarioCreateApplicationService;
 
-    public ScenariosController(HtmlReader htmlReader) {
+    public ScenariosController(HtmlReader htmlReader, ScenarioCreateApplicationService scenarioCreateApplicationService) {
         this.htmlReader = htmlReader;
+        this.scenarioCreateApplicationService = scenarioCreateApplicationService;
     }
 
     @PostMapping("/list")
@@ -112,7 +115,7 @@ public class ScenariosController {
     @PostMapping("crate")
     public ResponseEntity<String> scenarioCreate(@RequestBody ScenarioCreateRequest scenarioCreateRequest) {
 
-
+        scenarioCreateApplicationService.createScenario(scenarioCreateRequest);
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 

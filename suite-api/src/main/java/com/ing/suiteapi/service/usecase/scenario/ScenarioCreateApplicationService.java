@@ -11,6 +11,7 @@ import com.ing.suiteapi.service.usecase.scenario.model.ScenarioCreateRequest;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveResponse;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,6 +38,7 @@ public class ScenarioCreateApplicationService {
 
                 var scenarioData =  new ScenarioData()
                         .setOrderNo(rec.getOrder())
+                        .setTxnDate(LocalDateTime.now())
                         .setName(rec.getName())
                         .setParameterKey(key)
                         .setParameterValue(value);
@@ -46,6 +48,8 @@ public class ScenarioCreateApplicationService {
 
         List<Scenario> scenarioList = scenarioCreateRequest.getScenarioStepsDtoList().stream().map(
                 m->  new Scenario()
+                        .setProjectId(scenarioCreateRequest.getScenarioId())
+                        .setTxnDate(LocalDateTime.now())
                         .setActionWord(m.getActionWord())
                         .setOrderNo(m.getOrder())
                         .setActionKey(m.getActionKey().getValue())
