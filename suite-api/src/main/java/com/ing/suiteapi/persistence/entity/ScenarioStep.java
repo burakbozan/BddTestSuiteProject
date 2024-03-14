@@ -1,13 +1,12 @@
 package com.ing.suiteapi.persistence.entity;
 
-import com.ing.suiteapi.service.dto.ActionKey;
 import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
 @Table(name = "scenario")
 @Entity
-public class Scenario {
+public class ScenarioStep {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,7 +31,7 @@ public class Scenario {
         return id;
     }
 
-    public Scenario setId(Long id) {
+    public ScenarioStep setId(Long id) {
         this.id = id;
         return this;
     }
@@ -41,7 +40,7 @@ public class Scenario {
         return projectId;
     }
 
-    public Scenario setProjectId(Long projectId) {
+    public ScenarioStep setProjectId(Long projectId) {
         this.projectId = projectId;
         return this;
     }
@@ -50,7 +49,7 @@ public class Scenario {
         return txnDate;
     }
 
-    public Scenario setTxnDate(LocalDateTime txnDate) {
+    public ScenarioStep setTxnDate(LocalDateTime txnDate) {
         this.txnDate = txnDate;
         return this;
     }
@@ -59,7 +58,7 @@ public class Scenario {
         return orderNo;
     }
 
-    public Scenario setOrderNo(Long orderNo) {
+    public ScenarioStep setOrderNo(Long orderNo) {
         this.orderNo = orderNo;
         return this;
     }
@@ -68,7 +67,7 @@ public class Scenario {
         return actionKey;
     }
 
-    public Scenario setActionKey(String actionKey) {
+    public ScenarioStep setActionKey(String actionKey) {
         this.actionKey = actionKey;
         return this;
     }
@@ -77,7 +76,7 @@ public class Scenario {
         return actionWord;
     }
 
-    public Scenario setActionWord(String actionWord) {
+    public ScenarioStep setActionWord(String actionWord) {
         this.actionWord = actionWord;
         return this;
     }
