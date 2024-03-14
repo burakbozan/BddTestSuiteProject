@@ -14,14 +14,17 @@ public class ScenarioData {
     @Column(name = "txnDate")
     private LocalDateTime txnDate;
 
+    @Column(name = "orderNo")
+    private Long orderNo;
+
+    @Column(name = "scenarioName")
+    private String scenarioName;
+
     @Column(name = "parameterKey")
     private String parameterKey;
 
     @Column(name = "parameterValue")
-    private Long parameterValue;
-
-    @Column(name = "example")
-    private Long example;
+    private String parameterValue;
 
     public Long id() {
         return id;
@@ -29,6 +32,16 @@ public class ScenarioData {
 
     public ScenarioData setId(Long id) {
         this.id = id;
+        return this;
+    }
+
+    public ScenarioData setOrderNo(Long orderNo) {
+        this.orderNo = orderNo;
+        return this;
+    }
+
+    public ScenarioData setName(String scenarioName) {
+        this.scenarioName = scenarioName;
         return this;
     }
 
@@ -50,21 +63,13 @@ public class ScenarioData {
         return this;
     }
 
-    public Long parameterValue() {
+    public String parameterValue() {
         return parameterValue;
     }
 
-    public ScenarioData setParameterValue(Long parameterValue) {
+    public ScenarioData setParameterValue(String parameterValue) {
         this.parameterValue = parameterValue;
         return this;
     }
 
-    public Long example() {
-        return example;
-    }
-
-    public ScenarioData setExample(Long example) {
-        this.example = example;
-        return this;
-    }
 }

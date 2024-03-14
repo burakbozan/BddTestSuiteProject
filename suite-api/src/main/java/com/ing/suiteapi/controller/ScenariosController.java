@@ -113,6 +113,14 @@ public class ScenariosController {
         return ResponseEntity.status(HttpStatus.OK).body(response);
     }
 
+    @PostMapping("crate")
+    public ResponseEntity<String> scenarioCreate(@RequestBody ScenarioCreateRequest scenarioCreateRequest) {
+
+
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+
+
     @PostMapping("result/retrieve")
     public ResponseEntity<String> scenarioRetrieveStep(@RequestBody ScenarioResultRetrieveRequest scenarioResultRetrieveRequest) {
 
