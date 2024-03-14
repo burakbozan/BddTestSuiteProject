@@ -21,4 +21,10 @@ public class GithubController {
 	public String getGithubArtifacts() throws IOException {
 		return githubActionClient.getCucumberReportAsJson();
 	}
+
+	@GetMapping("/reports/html")
+	public String getGithubFile() throws IOException {
+		return githubActionClient.getCucumberReportAsHtml();
+	}
+
 }
