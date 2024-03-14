@@ -22,7 +22,7 @@ public class ScenarioRetrieveService {
     }
 
     public List<ScenarioDto> getScenario(){
-        return scenarioStepRepository.findAll().stream().map(m -> new ScenarioDto.Builder().id(m.projectId()).build()).toList();
+        return scenarioStepRepository.findAll().stream().map(m -> new ScenarioDto.Builder().id(m.scenarioId()).build()).toList();
     }
 
     public List<ScenarioParametersDto> getScenarioParameterList(){

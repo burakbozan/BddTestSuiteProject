@@ -31,12 +31,16 @@ public class ScenarioStep {
         return id;
     }
 
+    public Long getScenarioId() {
+        return scenarioId;
+    }
+
     public ScenarioStep setId(Long id) {
         this.id = id;
         return this;
     }
 
-    public Long projectId() {
+    public Long scenarioId() {
         return scenarioId;
     }
 

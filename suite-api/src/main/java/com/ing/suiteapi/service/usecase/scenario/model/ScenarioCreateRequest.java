@@ -1,32 +1,23 @@
 package com.ing.suiteapi.service.usecase.scenario.model;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.ing.suiteapi.service.dto.ScenarioParametersDto;
-import com.ing.suiteapi.service.dto.ScenarioStepsDto;
-
-import java.util.List;
 
 @JsonSerialize
 public class ScenarioCreateRequest {
-    private final Long scenarioId;
-    private final List<ScenarioParametersDto> scenarioParametersDtoList;
-    private final List<ScenarioStepsDto> scenarioStepsDtoList;
+    private final Long projectId;
 
-    public ScenarioCreateRequest(Long scenarioId, List<ScenarioParametersDto> scenarioParametersDtoList, List<ScenarioStepsDto> scenarioStepsDtoList) {
-        this.scenarioId = scenarioId;
-        this.scenarioParametersDtoList = scenarioParametersDtoList;
-        this.scenarioStepsDtoList = scenarioStepsDtoList;
+    private final String name;
+
+    public ScenarioCreateRequest(Long projectId, String name) {
+        this.projectId = projectId;
+        this.name = name;
     }
 
-    public List<ScenarioParametersDto> getScenarioParametersDtoList() {
-        return scenarioParametersDtoList;
+    public Long getProjectId() {
+        return projectId;
     }
 
-    public List<ScenarioStepsDto> getScenarioStepsDtoList() {
-        return scenarioStepsDtoList;
-    }
-
-    public Long getScenarioId() {
-        return scenarioId;
+    public String getName() {
+        return name;
     }
 }

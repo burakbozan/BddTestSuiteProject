@@ -4,6 +4,7 @@ import com.ing.suiteapi.service.dto.*;
 import com.ing.suiteapi.service.usecase.project.ResultExecuteApplicationService;
 import com.ing.suiteapi.service.usecase.project.ScenarioRetrieveService;
 import com.ing.suiteapi.service.usecase.scenario.ScenarioCreateApplicationService;
+import com.ing.suiteapi.service.usecase.scenario.ScenarioStepCreateApplicationService;
 import com.ing.suiteapi.service.usecase.scenario.model.*;
 import com.ing.suiteapi.util.HtmlReader;
 import org.springframework.http.HttpStatus;
@@ -19,12 +20,14 @@ import java.util.List;
 public class ScenariosController {
 
     private final HtmlReader htmlReader;
+    private final ScenarioStepCreateApplicationService scenarioStepCreateApplicationService;
     private final ScenarioCreateApplicationService scenarioCreateApplicationService;
     private final ScenarioRetrieveService scenarioRetrieveService;
     private final ResultExecuteApplicationService resultExecuteApplicationService;
 
-    public ScenariosController(HtmlReader htmlReader, ScenarioRetrieveService scenarioRetrieveService, ScenarioCreateApplicationService scenarioCreateApplicationService, ScenarioRetrieveService scenarioRetrieveService1, ResultExecuteApplicationService resultExecuteApplicationService) {
+    public ScenariosController(HtmlReader htmlReader, ScenarioRetrieveService scenarioRetrieveService, ScenarioStepCreateApplicationService scenarioStepCreateApplicationService, ScenarioCreateApplicationService scenarioCreateApplicationService, ScenarioRetrieveService scenarioRetrieveService1, ResultExecuteApplicationService resultExecuteApplicationService) {
         this.htmlReader = htmlReader;
+        this.scenarioStepCreateApplicationService = scenarioStepCreateApplicationService;
         this.scenarioCreateApplicationService = scenarioCreateApplicationService;
         this.scenarioRetrieveService = scenarioRetrieveService1;
         this.resultExecuteApplicationService = resultExecuteApplicationService;
@@ -119,7 +122,14 @@ public class ScenariosController {
 
     }
 
-    @PostMapping("crate")
+    @PostMapping("create/step")
+    public ResponseEntity<String> scenarioStepCreate(@RequestBody ScenarioStepCreateRequest scenarioStepCreateRequest) {
+
+        scenarioStepCreateApplicationService.createScenarioStep(scenarioStepCreateRequest);
+        return ResponseEntity.status(HttpStatus.OK).body(null);
+    }
+
+    @PostMapping("create")
     public ResponseEntity<String> scenarioCreate(@RequestBody ScenarioCreateRequest scenarioCreateRequest) {
 
         scenarioCreateApplicationService.createScenario(scenarioCreateRequest);

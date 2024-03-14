@@ -13,13 +13,12 @@ public class Scenario {
     private Long id;
 
     @Column(name = "scenarioName")
-    private Long scenarioName;
+    private String scenarioName;
 
     @Column(name = "projectId")
     private Long projectId;
 
-    public Scenario(Long id, Long scenarioName, Long projectId) {
-        this.id = id;
+    public Scenario(String scenarioName, Long projectId) {
         this.scenarioName = scenarioName;
         this.projectId = projectId;
     }
@@ -32,11 +31,11 @@ public class Scenario {
         this.id = id;
     }
 
-    public Long getScenarioName() {
+    public String getScenarioName() {
         return scenarioName;
     }
 
-    public void setScenarioName(Long scenarioName) {
+    public void setScenarioName(String scenarioName) {
         this.scenarioName = scenarioName;
     }
 
