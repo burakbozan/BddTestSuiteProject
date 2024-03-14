@@ -1,21 +1,15 @@
 package com.ing.suiteapi.service.usecase.scenario;
 
-import com.ing.suiteapi.persistence.entity.Scenario;
+import com.ing.suiteapi.persistence.entity.ScenarioStep;
 import com.ing.suiteapi.persistence.entity.ScenarioData;
 import com.ing.suiteapi.persistence.repository.ScenarioDataRepository;
 import com.ing.suiteapi.persistence.repository.ScenarioRepository;
-import com.ing.suiteapi.service.dto.ActionKey;
-import com.ing.suiteapi.service.dto.ScenarioParametersDto;
-import com.ing.suiteapi.service.dto.ScenarioStepsDto;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioCreateRequest;
-import com.ing.suiteapi.service.usecase.scenario.model.ScenarioDetailRetrieveResponse;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Service
 public class ScenarioCreateApplicationService {
@@ -46,8 +40,8 @@ public class ScenarioCreateApplicationService {
             }
         }
 
-        List<Scenario> scenarioList = scenarioCreateRequest.getScenarioStepsDtoList().stream().map(
-                m->  new Scenario()
+        List<ScenarioStep> scenarioStepList = scenarioCreateRequest.getScenarioStepsDtoList().stream().map(
+                m->  new ScenarioStep()
                         .setProjectId(scenarioCreateRequest.getScenarioId())
                         .setTxnDate(LocalDateTime.now())
                         .setActionWord(m.getActionWord())
@@ -55,7 +49,7 @@ public class ScenarioCreateApplicationService {
                         .setActionKey(m.getActionKey().getValue())
         ).toList();
 
-        scenarioRepository.saveAll(scenarioList);
+        scenarioRepository.saveAll(scenarioStepList);
         scenarioDataRepository.saveAll(scenarioDataList);
     }
 }
