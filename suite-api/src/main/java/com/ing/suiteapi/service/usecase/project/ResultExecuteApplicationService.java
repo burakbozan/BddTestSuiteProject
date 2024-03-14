@@ -29,7 +29,7 @@ public class ResultExecuteApplicationService {
        List<Long> scenarioList = scenarioStepRepository.findAll().stream().
                 filter(f-> f.scenarioId().equals(projectId)).map(ScenarioStep::getScenarioId).toList();
 
-        String joined = "Scenario: ";
+        String joined = "Feature:Auto test \n Scenario: ";
         for (var scenarioId : scenarioList.stream().distinct().toList())
         {
             joined =  joined + scenarioRepository.findAll().stream().
@@ -44,6 +44,7 @@ public class ResultExecuteApplicationService {
 
 
         try {
+
             FileOutputStream fos = new FileOutputStream("dosya.txt");
             byte[] veri = joined.getBytes();
             fos.write(veri);
