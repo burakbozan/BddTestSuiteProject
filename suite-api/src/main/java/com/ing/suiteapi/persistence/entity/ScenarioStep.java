@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 import java.time.LocalDateTime;
 
-@Table(name = "scenario")
+@Table(name = "scenarioStep")
 @Entity
 public class ScenarioStep {
 

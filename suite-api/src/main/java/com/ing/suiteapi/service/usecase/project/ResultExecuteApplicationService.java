@@ -1,7 +1,7 @@
 package com.ing.suiteapi.service.usecase.project;
 
 import com.ing.suiteapi.persistence.repository.ScenarioDataRepository;
-import com.ing.suiteapi.persistence.repository.ScenarioRepository;
+import com.ing.suiteapi.persistence.repository.ScenarioStepRepository;
 import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
@@ -11,17 +11,17 @@ import java.util.List;
 @Service
 public class ResultExecuteApplicationService {
 
-    private final ScenarioRepository scenarioRepository;
+    private final ScenarioStepRepository scenarioStepRepository;
     private final ScenarioDataRepository scenarioDataRepository;
 
-    public ResultExecuteApplicationService(ScenarioRepository scenarioRepository, ScenarioDataRepository scenarioDataRepository) {
-        this.scenarioRepository = scenarioRepository;
+    public ResultExecuteApplicationService(ScenarioStepRepository scenarioStepRepository, ScenarioDataRepository scenarioDataRepository) {
+        this.scenarioStepRepository = scenarioStepRepository;
         this.scenarioDataRepository = scenarioDataRepository;
     }
 
     public void createResult(Long projectId)
     {
-       List<String> listString =   scenarioRepository.findAll().stream().
+       List<String> listString =   scenarioStepRepository.findAll().stream().
                 filter(f-> f.projectId().equals(projectId))
                 .map(m-> m.actionKey() + m.actionWord() ).toList();
 

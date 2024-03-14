@@ -4,9 +4,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 @JsonDeserialize
 public class ScenarioExecuteRetrieveRequest {
-    private  Long scenarioId;
+    private  Long projectId;
 
-    public Long getScenarioId() {
-        return scenarioId;
+    public Long getProjectId() {
+        return projectId;
     }
 }

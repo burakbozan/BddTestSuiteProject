@@ -1,7 +1,8 @@
 package com.ing.suiteapi.persistence.repository;
 
-import com.ing.suiteapi.persistence.entity.ScenarioStep;
+
+import com.ing.suiteapi.persistence.entity.Scenario;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface ScenarioRepository extends JpaRepository<ScenarioStep, Long> {
+public interface ScenarioRepository extends JpaRepository<Scenario, Long> {
 }

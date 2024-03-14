@@ -3,7 +3,7 @@ package com.ing.suiteapi.service.usecase.scenario;
 import com.ing.suiteapi.persistence.entity.ScenarioStep;
 import com.ing.suiteapi.persistence.entity.ScenarioData;
 import com.ing.suiteapi.persistence.repository.ScenarioDataRepository;
-import com.ing.suiteapi.persistence.repository.ScenarioRepository;
+import com.ing.suiteapi.persistence.repository.ScenarioStepRepository;
 import com.ing.suiteapi.service.usecase.scenario.model.ScenarioCreateRequest;
 import org.springframework.stereotype.Service;
 
@@ -14,11 +14,11 @@ import java.util.List;
 @Service
 public class ScenarioCreateApplicationService {
 
-    private final ScenarioRepository scenarioRepository;
+    private final ScenarioStepRepository scenarioStepRepository;
     private final ScenarioDataRepository scenarioDataRepository;
 
-    public ScenarioCreateApplicationService(ScenarioRepository scenarioRepository, ScenarioDataRepository scenarioDataRepository) {
-        this.scenarioRepository = scenarioRepository;
+    public ScenarioCreateApplicationService(ScenarioStepRepository scenarioStepRepository, ScenarioDataRepository scenarioDataRepository) {
+        this.scenarioStepRepository = scenarioStepRepository;
         this.scenarioDataRepository = scenarioDataRepository;
     }
 
@@ -49,7 +49,7 @@ public class ScenarioCreateApplicationService {
                         .setActionKey(m.getActionKey().getValue())
         ).toList();
 
-        scenarioRepository.saveAll(scenarioStepList);
+        scenarioStepRepository.saveAll(scenarioStepList);
         scenarioDataRepository.saveAll(scenarioDataList);
     }
 }

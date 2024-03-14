@@ -1,6 +1,7 @@
 package com.ing.suiteapi.controller;
 
 import com.ing.suiteapi.service.dto.*;
+import com.ing.suiteapi.service.usecase.project.ResultExecuteApplicationService;
 import com.ing.suiteapi.service.usecase.project.ScenarioRetrieveService;
 import com.ing.suiteapi.service.usecase.scenario.ScenarioCreateApplicationService;
 import com.ing.suiteapi.service.usecase.scenario.model.*;
@@ -19,11 +20,13 @@ public class ScenariosController {
     private final HtmlReader htmlReader;
     private final ScenarioCreateApplicationService scenarioCreateApplicationService;
     private final ScenarioRetrieveService scenarioRetrieveService;
+    private final ResultExecuteApplicationService resultExecuteApplicationService;
 
-    public ScenariosController(HtmlReader htmlReader, ScenarioRetrieveService scenarioRetrieveService, ScenarioCreateApplicationService scenarioCreateApplicationService, ScenarioRetrieveService scenarioRetrieveService1) {
+    public ScenariosController(HtmlReader htmlReader, ScenarioRetrieveService scenarioRetrieveService, ScenarioCreateApplicationService scenarioCreateApplicationService, ScenarioRetrieveService scenarioRetrieveService1, ResultExecuteApplicationService resultExecuteApplicationService) {
         this.htmlReader = htmlReader;
         this.scenarioCreateApplicationService = scenarioCreateApplicationService;
         this.scenarioRetrieveService = scenarioRetrieveService1;
+        this.resultExecuteApplicationService = resultExecuteApplicationService;
     }
 
     @PostMapping("/list")
@@ -132,6 +135,7 @@ public class ScenariosController {
     @PostMapping("result/execute")
     public ResponseEntity<String> scenarioExecuteStep(@RequestBody ScenarioExecuteRetrieveRequest scenarioExecuteRetrieveRequest) {
 
+        resultExecuteApplicationService.createResult(scenarioExecuteRetrieveRequest.getProjectId());
         return ResponseEntity.status(HttpStatus.OK).body(null);
     }
 
