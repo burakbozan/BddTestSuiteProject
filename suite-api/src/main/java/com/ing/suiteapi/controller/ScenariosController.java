@@ -51,7 +51,7 @@ public class ScenariosController {
                 new ScenarioDto.Builder().
                         id(1L).
                         name("Account Close").
-                        isSuccess(true)
+                        isSuccess(false)
                         .build()
         );
 
@@ -95,18 +95,18 @@ public class ScenariosController {
     public ResponseEntity<ScenarioDetailRetrieveResponse> scenarioDetail(@RequestBody ScenarioDetailRetrieveRequest scenarioDetailRetrieveRequest) {
 
         List<ScenarioParametersDto> scenarioParametersDtoList = new ArrayList<>();
-        Map<String, String> params = new HashMap<>();
-        params.put("ending_balance", "$0");
-        params.put("amount", "$100");
-        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params));
-        params.clear();
-        params.put("ending_balance", "$50");
-        params.put("amount", "$50");
-        scenarioParametersDtoList.add(new ScenarioParametersDto(2L, "Account Open", params));
-        params.clear();
-        params.put("ending_balance", "$80");
-        params.put("amount", "$20");
-        scenarioParametersDtoList.add(new ScenarioParametersDto(3L, "Account Open", params));
+        Map<String, String> params1 = new HashMap<>();
+        params1.put("ending_balance", "$0");
+        params1.put("amount", "$100");
+        scenarioParametersDtoList.add(new ScenarioParametersDto(1L, "Account Open", params1));
+        Map<String, String> params2 = new HashMap<>();
+        params2.put("ending_balance", "$50");
+        params2.put("amount", "$50");
+        scenarioParametersDtoList.add(new ScenarioParametersDto(2L, "Account Open", params2));
+        Map<String, String> params3 = new HashMap<>();
+        params3.put("ending_balance", "$80");
+        params3.put("amount", "$20");
+        scenarioParametersDtoList.add(new ScenarioParametersDto(3L, "Account Open", params3));
 
         List<ScenarioStepsDto> scenarioStepsDtoList = new ArrayList<>();
         scenarioStepsDtoList.add(new ScenarioStepsDto(1L, ActionKey.GIVEN, "the account balance is \"$100\""));
