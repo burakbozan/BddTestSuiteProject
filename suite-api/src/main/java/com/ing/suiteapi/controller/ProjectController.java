@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @CrossOrigin(origins = "http://localhost:8000")
@@ -32,13 +33,12 @@ public class ProjectController{
     @PostMapping("/list")
     public ResponseEntity<List<Projects>> list() {
 
-        /*
         List<Projects> projects = new ArrayList<>();
         projects.add(new Projects.Builder().name("saving").id(1L).failedCount(5L).passedCount(26L).build());
         projects.add(new Projects.Builder().name("account").id(2L).failedCount(0L).passedCount(56L).build());
         projects.add(new Projects.Builder().name("loan").id(3L).failedCount(0L).passedCount(2326L).build());
-         */
+        return  ResponseEntity.status(HttpStatus.OK).body(projects);
 
-        return  ResponseEntity.status(HttpStatus.OK).body(projectRetrieveApplicationService.retrieveProject());
+        //return ResponseEntity.status(HttpStatus.OK).body(projectRetrieveApplicationService.retrieveProject());
     }
 }

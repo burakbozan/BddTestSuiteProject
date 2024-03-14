@@ -35,6 +35,19 @@ public class ScenarioData {
         return this;
     }
 
+    public Long orderNo() {
+        return orderNo;
+    }
+
+    public String scenarioName() {
+        return scenarioName;
+    }
+
+    public ScenarioData setScenarioName(String scenarioName) {
+        this.scenarioName = scenarioName;
+        return this;
+    }
+
     public ScenarioData setOrderNo(Long orderNo) {
         this.orderNo = orderNo;
         return this;
